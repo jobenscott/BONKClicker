@@ -115,6 +115,9 @@ function AutoClicker() {
     setAutoClickerMultiplier(data.autoClickerMultiplier + 0.05);
     setAutoClickerMultiplierCost((.01 * (1 + (data.autoClickerMultiplier * 1.5))));
     setCount(data.bonkPoints);
+    if(data.bonkPoints < .01) {
+      setClaimable(false);
+    }
   }
 
 
@@ -130,6 +133,9 @@ function AutoClicker() {
     setClickPower(data.clickPower);
     setClickPowerCost(.01 * (1 + (data.clickPower * 2)));
     setCount(data.bonkPoints);
+    if(data.bonkPoints < .01) {
+      setClaimable(false);
+    }
   }
 
   const handleClaim = async () => {
