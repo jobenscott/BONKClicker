@@ -94,6 +94,7 @@ const TopNav = () => {
         key="/"
         onClick={(e) => setCurrent(e.key)}
         // icon={<AppstoreOutlined />}
+        sx={{backgroundColor: '#f7a804'}}
       >
        <WalletMultiButton className="btn btn-ghost mr-4" />
       </Item>

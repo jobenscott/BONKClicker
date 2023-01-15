@@ -19,7 +19,7 @@ module.exports = {
             display: ['PT Mono, monospace'],
             body: ['Inter, sans-serif'],
           },
-          'primary': '#2a2a2a',           /* Primary color */
+          'primary': '#f7a804',           /* Primary color */
           'primary-focus': '#9945FF',     /* Primary color - focused */
           'primary-content': '#ffffff',   /* Foreground content color to use on primary color */
 

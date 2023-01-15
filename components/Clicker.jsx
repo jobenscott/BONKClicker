@@ -152,7 +152,7 @@ function AutoClicker() {
           flexDirection: 'column',
         }}
       >
-        <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "lightgray", m: 2 }}>
+        <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#fccc69", borderRadius: 5, m: 2 }}>
           <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3 }}>Bonk Clicker</Typography>
         </Grid>
       </Grid>
@@ -165,32 +165,32 @@ function AutoClicker() {
             flexDirection: 'column',
           }}
         >
-          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "lightgray", m: 2 }}>
-            <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`Bonk Points: ${count}`}</Typography>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, m: 2}}>
+            <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`Bonk Points: ${count}`}</Typography>
           </Grid>
           <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
             <Button onClick={handleClick} disabled={!clickable}>Get BONK</Button>
           </Grid>
-          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "lightgray", m: 2 }}>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, m: 2}}>
             <Button onClick={handleAutoClicker} disabled={count < autoClickerCost}>
               Buy AutoClicker
             </Button>
-            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`AutoBONKers: ${autoClicker}`}</Typography>
-            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`AutoBONKers Cost: ${autoClickerCost}`}</Typography>
+            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`AutoBONKers: ${autoClicker}`}</Typography>
+            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`AutoBONKers Cost: ${autoClickerCost}`}</Typography>
           </Grid>
-          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "lightgray", m: 2 }}>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, m: 2}}>
             <Button onClick={handleMultiplier} disabled={count < autoClickerMultiplierCost}>
               Buy AutoClicker Multiplier
             </Button>
-            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`AutoBONKer Multiplier: ${autoClickerMultiplier}`}</Typography>
-            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`AutoBONKer Multiplier Cost: ${autoClickerMultiplierCost}`}</Typography>
+            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`AutoBONKer Multiplier: ${autoClickerMultiplier}`}</Typography>
+            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`AutoBONKer Multiplier Cost: ${autoClickerMultiplierCost}`}</Typography>
           </Grid>
-          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "lightgray", m: 2 }}>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, m: 2}}>
             <Button onClick={handleClickPower} disabled={count < clickPowerCost}>
               Buy Click Power
             </Button>
-            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`BONK Click Power: ${clickPower}`}</Typography>
-            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`BONK Click Power Cost: ${clickPowerCost}`}</Typography>
+            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`BONK Click Power: ${clickPower}`}</Typography>
+            <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`BONK Click Power Cost: ${clickPowerCost}`}</Typography>
           </Grid>
           <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
             <Button onClick={handleClaim} disabled={!clickable}>Claim BONK</Button>
