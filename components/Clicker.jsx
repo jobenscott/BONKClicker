@@ -228,6 +228,9 @@ function AutoClicker() {
               </Grid>
             </Grid>
           </Grid>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Button onClick={handleClaim} disabled={!claimable}>Claim BONK</Button>
+          </Grid> 
           {/* <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, m: 2 }}>
             <Button onClick={handleMultiplier} disabled={count < autoClickerMultiplierCost}>
               Buy AutoClicker Multiplier
