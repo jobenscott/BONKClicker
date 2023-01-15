@@ -21,6 +21,7 @@ function AutoClicker() {
   const [clickPower, setClickPower] = useState(1)
   const [clickPowerCost, setClickPowerCost] = useState(.01)
   const [clickable, setClickable] = useState(true)
+  const [claimable, setClaimable] = useState(false)
 
   // console.log('the user', user);
 
@@ -35,6 +36,9 @@ function AutoClicker() {
       setAutoClickerMultiplierCost((.01 * (1 + (user.autoClickerMultiplier * 1.5))));
       setClickPower(user.clickPower);
       setClickPowerCost(.01 * (1 + (user.clickPower * 2)));
+      if (user.bonkPoints > .01) {
+        setClaimable(true);
+      }
     }
   }, [user]);
   useEffect(() => {
@@ -193,7 +197,7 @@ function AutoClicker() {
             <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: {lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem"}  }}>{`BONK Click Power Cost: ${clickPowerCost}`}</Typography>
           </Grid>
           <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button onClick={handleClaim} disabled={!clickable}>Claim BONK</Button>
+            <Button onClick={handleClaim} disabled={!claimable}>Claim BONK</Button>
           </Grid>
         </Grid>
 
