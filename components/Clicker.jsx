@@ -152,7 +152,7 @@ function AutoClicker() {
           flexDirection: 'column',
         }}
       >
-        <Grid item>
+        <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "lightgray", m: 2 }}>
           <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3 }}>Bonk Clicker</Typography>
         </Grid>
       </Grid>
@@ -165,7 +165,7 @@ function AutoClicker() {
             flexDirection: 'column',
           }}
         >
-          <Grid item>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "lightgray", m: 2 }}>
             <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3 }}>{`Bonk Points: ${count}`}</Typography>
           </Grid>
           <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
