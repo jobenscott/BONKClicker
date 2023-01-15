@@ -98,17 +98,25 @@ const TopNav = () => {
       >
        <WalletMultiButton className="btn btn-ghost mr-4" />
       </Item>
-      <Item
+      
+       {/* <WalletMultiButton className="btn btn-ghost mr-4" />
+        */}{!user ?
+          <Item
         key="/"
         onClick={(e) => setCurrent(e.key)}
         // icon={<AppstoreOutlined />}
         sx={{background: '#f7a804', width: "5rem"}}
       >
-       {/* <WalletMultiButton className="btn btn-ghost mr-4" />
-        */}{!user &&
           <SignMessage />
+          </Item>
+        :
+      <Item onClick={logout}>Logout</Item>
         }
-      </Item>
+{/*       
+      {user &&
+       
+      }  */}
+      
 
       
 
