@@ -18,7 +18,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider>
       <ContextProvider>
       <ToastContainer position="top-center" />
-      <AppBar/>
       <TopNav />
       <Component {...pageProps} />
       </ContextProvider>

@@ -15,6 +15,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { SignMessage } from "./SignMessage";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 const { Item, SubMenu, ItemGroup } = Menu;
 
@@ -45,7 +46,9 @@ const TopNav = () => {
       selectedKeys={[current]}
       className="mb-2"
     >
-      <Item
+     
+      
+      {/* <Item
         key="/"
         onClick={(e) => setCurrent(e.key)}
         icon={<AppstoreOutlined />}
@@ -86,7 +89,14 @@ const TopNav = () => {
             <Item onClick={logout}>Logout</Item>
           </ItemGroup>
         </SubMenu>
-      )}
+      )} */}
+       <Item
+        key="/"
+        onClick={(e) => setCurrent(e.key)}
+        // icon={<AppstoreOutlined />}
+      >
+       <WalletMultiButton className="btn btn-ghost mr-4" />
+      </Item>
 
     </Menu>
   );
