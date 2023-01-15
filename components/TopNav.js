@@ -105,8 +105,9 @@ const TopNav = () => {
         sx={{background: '#f7a804', width: "5rem"}}
       >
        {/* <WalletMultiButton className="btn btn-ghost mr-4" />
-        */}
-        <SignMessage />
+        */}{!user &&
+          <SignMessage />
+        }
       </Item>
 
       
