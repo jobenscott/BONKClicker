@@ -141,6 +141,7 @@ function AutoClicker() {
       });
       // save in local storage
       window.localStorage.setItem("user", JSON.stringify(data));
+      setClaimable(false);
     } catch (error) {
       console.log(error);
     }
