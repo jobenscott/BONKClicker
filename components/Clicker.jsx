@@ -15,11 +15,11 @@ function AutoClicker() {
 
   const [count, setCount] = useState(0)
   const [autoClicker, setAutoClicker] = useState(0)
-  const [autoClickerCost, setAutoClickerCost] = useState(.01)
+  const [autoClickerCost, setAutoClickerCost] = useState(1)
   const [autoClickerMultiplier, setAutoClickerMultiplier] = useState(1)
-  const [autoClickerMultiplierCost, setAutoClickerMultiplierCost] = useState(.01)
+  const [autoClickerMultiplierCost, setAutoClickerMultiplierCost] = useState(1)
   const [clickPower, setClickPower] = useState(1)
-  const [clickPowerCost, setClickPowerCost] = useState(.01)
+  const [clickPowerCost, setClickPowerCost] = useState(1)
   const [clickable, setClickable] = useState(true)
   const [claimable, setClaimable] = useState(false)
 
@@ -31,12 +31,12 @@ function AutoClicker() {
 
       setCount(user.bonkPoints);
       setAutoClicker(user.autoClicker);
-      setAutoClickerCost((.01 * (1 + (user.autoClicker * 1.7))));
+      setAutoClickerCost((1 * (1 + (user.autoClicker * 1.7))));
       setAutoClickerMultiplier(user.autoClickerMultiplier);
-      setAutoClickerMultiplierCost((.01 * (1 + (user.autoClickerMultiplier * 1.5))));
+      setAutoClickerMultiplierCost((1 * (1 + (user.autoClickerMultiplier * 1.5))));
       setClickPower(user.clickPower);
-      setClickPowerCost(.01 * (1 + (user.clickPower * 2)));
-      if (user.bonkPoints > .01) {
+      setClickPowerCost(1 * (1 + (user.clickPower * 2)));
+      if (user.bonkPoints > 1) {
         setClaimable(true);
       }
     }
@@ -46,7 +46,7 @@ function AutoClicker() {
     console.log('here baby!');
     if (autoClicker) {
       intervalId = setInterval(() => {
-        setCount(count => count + (0.00001 * (autoClickerMultiplier * .05) * autoClicker))
+        setCount(count => count + (0.01 * (autoClickerMultiplier * .05) * autoClicker))
       }, 1000);
     } else {
       clearInterval(intervalId);
@@ -95,7 +95,7 @@ function AutoClicker() {
       // save in local storage
       window.localStorage.setItem("user", JSON.stringify(data));
       setAutoClicker(data.autoClicker);
-      setAutoClickerCost((.01 * (1 + (data.autoClicker * 1.7))));
+      setAutoClickerCost((1 * (1 + (data.autoClicker * 1.7))));
       setCount(data.bonkPoints);
     } catch (error) {
       console.log(error);
@@ -113,9 +113,9 @@ function AutoClicker() {
     // save in local storage
     window.localStorage.setItem("user", JSON.stringify(data));
     setAutoClickerMultiplier(data.autoClickerMultiplier + 0.05);
-    setAutoClickerMultiplierCost((.01 * (1 + (data.autoClickerMultiplier * 1.5))));
+    setAutoClickerMultiplierCost((1 * (1 + (data.autoClickerMultiplier * 1.5))));
     setCount(data.bonkPoints);
-    if(data.bonkPoints < .01) {
+    if(data.bonkPoints < 1) {
       setClaimable(false);
     }
   }
@@ -131,9 +131,9 @@ function AutoClicker() {
     // save in local storage
     window.localStorage.setItem("user", JSON.stringify(data));
     setClickPower(data.clickPower);
-    setClickPowerCost(.01 * (1 + (data.clickPower * 2)));
+    setClickPowerCost(1 * (1 + (data.clickPower * 2)));
     setCount(data.bonkPoints);
-    if(data.bonkPoints < .01) {
+    if(data.bonkPoints < 1) {
       setClaimable(false);
     }
   }
