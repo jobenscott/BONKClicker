@@ -170,7 +170,7 @@ function AutoClicker() {
                     }}
                 >
                     <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "white", borderRadius: 2, flexDirection: "column", maxWidth: {md: "70%", sm: "80%"} }}>
-                        <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', borderRadius: 2, m: 2 }}>
+                        <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', borderRadius: 2 }}>
                             <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem" } }}>{`$SOL - ${count.toFixed(8)}`}</Typography>
                         </Grid>
                         <Grid item sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
