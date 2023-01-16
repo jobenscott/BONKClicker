@@ -99,7 +99,7 @@ const TopNav = () => {
         sx={{background: 'black', width: "5rem"}}
         style={{background: "black", minWdith: "15rem"}}
       >
-       <WalletMultiButton style={{minWidth: "13rem"}} sx={{background: "black"}} className="btn btn-ghost mr-4" />
+        <WalletMultiButton style={{minWidth: "13rem"}} sx={{background: "black"}} /> 
       </Item>
       
        {/* <WalletMultiButton className="btn btn-ghost mr-4" />
