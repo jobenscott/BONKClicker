@@ -14,7 +14,7 @@ function AutoClicker() {
   } = useContext(Context);
 
   let starting_reward = .00001;
-  let starting_cost = .001;
+  let starting_cost = .0001;
 
   const [count, setCount] = useState(0)
   const [autoClicker, setAutoClicker] = useState(0)
