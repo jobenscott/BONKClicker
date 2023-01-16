@@ -13,13 +13,16 @@ function AutoClicker() {
     dispatch
   } = useContext(Context);
 
+  let starting_reward = .00001;
+  let starting_cost = .001;
+
   const [count, setCount] = useState(0)
   const [autoClicker, setAutoClicker] = useState(0)
-  const [autoClickerCost, setAutoClickerCost] = useState(1)
+  const [autoClickerCost, setAutoClickerCost] = useState(starting_cost)
   const [autoClickerMultiplier, setAutoClickerMultiplier] = useState(1)
-  const [autoClickerMultiplierCost, setAutoClickerMultiplierCost] = useState(1)
+  const [autoClickerMultiplierCost, setAutoClickerMultiplierCost] = useState(starting_cost)
   const [clickPower, setClickPower] = useState(1)
-  const [clickPowerCost, setClickPowerCost] = useState(1)
+  const [clickPowerCost, setClickPowerCost] = useState(starting_cost)
   const [clickable, setClickable] = useState(true)
   const [claimable, setClaimable] = useState(false)
 
@@ -27,16 +30,16 @@ function AutoClicker() {
 
   useEffect(() => {
     if (user) {
+        console.log('ello', user);
 
-
-      setCount(user.bonkPoints);
-      setAutoClicker(user.autoClicker);
-      setAutoClickerCost((1 * (1 + (user.autoClicker * 1.7))));
-      setAutoClickerMultiplier(user.autoClickerMultiplier);
-      setAutoClickerMultiplierCost((1 * (1 + (user.autoClickerMultiplier * 1.5))));
-      setClickPower(user.clickPower);
-      setClickPowerCost(1 * (1 + (user.clickPower * 2)));
-      if (user.bonkPoints > 1) {
+      setCount(user.solPoints);
+      setAutoClicker(user.solAutoClicker);
+      setAutoClickerCost((starting_cost * (1 + (user.solAutoClicker * 1.7))));
+      setAutoClickerMultiplier(user.solAutoClickerMultiplier);
+      setAutoClickerMultiplierCost((starting_cost * (1 + (user.solAutoClickerMultiplier * 1.5))));
+      setClickPower(user.solClickPower);
+      setClickPowerCost(starting_cost * (1 + (user.solClickPower * 2)));
+      if (user.solPoints > .00001) {
         setClaimable(true);
       }
     }
@@ -46,7 +49,7 @@ function AutoClicker() {
     console.log('here baby!');
     if (autoClicker) {
       intervalId = setInterval(() => {
-        setCount(count => count + (0.01 * (autoClickerMultiplier * .05) * autoClicker))
+        setCount(count => count + (0.0000001 * (autoClickerMultiplier * .05) * autoClicker))
       }, 1000);
     } else {
       clearInterval(intervalId);
@@ -59,7 +62,7 @@ function AutoClicker() {
     // setCount((count + (.001* clickPower)))
     try {
 
-      const { data } = await axios.get(`/api/manualClick?address=${user.address}`);
+      const { data } = await axios.get(`/api/solManualClick?address=${user.address}`);
       // console.log("REGISTER RESPONSE", data);
       dispatch({
         type: "LOGIN",
@@ -69,8 +72,8 @@ function AutoClicker() {
       window.localStorage.setItem("user", JSON.stringify(data));
 
       console.log(user);
-      if (data.bonkPoints != null) {
-        setCount(data.bonkPoints);
+      if (data.solPoints != null) {
+        setCount(data.solPoints);
       }
       setTimeout(() => {
         setClickable(true);
@@ -86,7 +89,7 @@ function AutoClicker() {
 
   const handleAutoClicker = async () => {
     try {
-      const { data } = await axios.get(`/api/purchaseAutoClicker?address=${user.address}`);
+      const { data } = await axios.get(`/api/solPurchaseAutoClicker?address=${user.address}`);
       dispatch({
         type: "LOGIN",
         payload: data,
@@ -94,9 +97,9 @@ function AutoClicker() {
       console.log(data);
       // save in local storage
       window.localStorage.setItem("user", JSON.stringify(data));
-      setAutoClicker(data.autoClicker);
-      setAutoClickerCost((1 * (1 + (data.autoClicker * 1.7))));
-      setCount(data.bonkPoints);
+      setAutoClicker(data.solAutoClicker);
+      setAutoClickerCost((starting_reward * (1 + (data.solAutoClicker * 1.7))));
+      setCount(data.solPoints);
     } catch (error) {
       console.log(error);
     }
@@ -104,7 +107,7 @@ function AutoClicker() {
   }
 
   const handleMultiplier = async () => {
-    const { data } = await axios.get(`/api/purchaseAutoClickerMultiplier?address=${user.address}`);
+    const { data } = await axios.get(`/api/solPurchaseAutoClickerMultiplier?address=${user.address}`);
     dispatch({
       type: "LOGIN",
       payload: data,
@@ -112,17 +115,17 @@ function AutoClicker() {
     console.log(data);
     // save in local storage
     window.localStorage.setItem("user", JSON.stringify(data));
-    setAutoClickerMultiplier(data.autoClickerMultiplier + 0.05);
-    setAutoClickerMultiplierCost((1 * (1 + (data.autoClickerMultiplier * 1.5))));
-    setCount(data.bonkPoints);
-    if(data.bonkPoints < 1) {
+    setAutoClickerMultiplier(data.solAutoClickerMultiplier + 0.05);
+    setAutoClickerMultiplierCost((starting_reward * (1 + (data.solAutoClickerMultiplier * 1.5))));
+    setCount(data.solPoints);
+    if(data.solPoints < 1) {
       setClaimable(false);
     }
   }
 
 
   const handleClickPower = async () => {
-    const { data } = await axios.get(`/api/purchaseClickPower?address=${user.address}`);
+    const { data } = await axios.get(`/api/solPurchaseClickPower?address=${user.address}`);
     dispatch({
       type: "LOGIN",
       payload: data,
@@ -130,17 +133,17 @@ function AutoClicker() {
     console.log(data);
     // save in local storage
     window.localStorage.setItem("user", JSON.stringify(data));
-    setClickPower(data.clickPower);
-    setClickPowerCost(1 * (1 + (data.clickPower * 2)));
-    setCount(data.bonkPoints);
-    if(data.bonkPoints < 1) {
+    setClickPower(data.solClickPower);
+    setClickPowerCost(starting_reward * (1 + (data.solClickPower * 2)));
+    setCount(data.solPoints);
+    if(data.solPoints < 1) {
       setClaimable(false);
     }
   }
 
   const handleClaim = async () => {
     try {
-      const { data } = await axios.get(`/api/claim?address=${user.address}`);
+      const { data } = await axios.get(`/api/solClaim?address=${user.address}`);
       dispatch({
         type: "LOGIN",
         payload: data,
@@ -164,7 +167,7 @@ function AutoClicker() {
         }}
       >
         <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#fccc69", borderRadius: 5, m: 2 }}>
-          <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3 }}>Bonk Clicker</Typography>
+          <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3 }}>$SOL Clicker</Typography>
         </Grid>
       </Grid>
       {user &&
@@ -179,10 +182,10 @@ function AutoClicker() {
         >
           <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, flexDirection: "column", mt: 2 }}>
             <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, m: 2 }}>
-              <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem" } }}>{`$BONK - ${count.toFixed(8)}`}</Typography>
+              <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem" } }}>{`$SOL - ${count.toFixed(8)}`}</Typography>
             </Grid>
             <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button onClick={handleClick} disabled={!clickable}>Get BONK</Button>
+              <Button onClick={handleClick} disabled={!clickable}>Get $SOL</Button>
             </Grid>
           </Grid>
           <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, flexDirection: "column", mt: 2 }}>
@@ -194,7 +197,7 @@ function AutoClicker() {
             <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexDirection: "row" }}>
 
               <Grid item xs="6">
-                <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" } }}>{`Auto-BONK-ers: ${autoClicker}`}</Typography>
+                <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" } }}>{`Auto-SOL-ers: ${autoClicker}`}</Typography>
               </Grid>
               <Grid item xs="6">
                 <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" } }}>{`Cost: ${autoClickerCost.toFixed(8)}`}</Typography>
@@ -210,7 +213,7 @@ function AutoClicker() {
             <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexDirection: "row" }}>
 
               <Grid item xs="6">
-                <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" }}}>{`Auto-BONK-er Multiplier: ${autoClickerMultiplier}`}</Typography>
+                <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" }}}>{`Auto-SOL-er Multiplier: ${autoClickerMultiplier}`}</Typography>
               </Grid>
               <Grid item xs="6">
                 <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" } }}>{`Cost: ${autoClickerMultiplierCost.toFixed(8)}`}</Typography>
@@ -226,7 +229,7 @@ function AutoClicker() {
             <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row', flexDirection: "row" }}>
 
               <Grid item xs="6">
-                <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" } }}>{`BONK Click Power: ${clickPower}`}</Typography>
+                <Typography variant="h4" component="h3" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: ".8rem" } }}>{`SOL Click Power: ${clickPower}`}</Typography>
 
               </Grid>
               <Grid item xs="6">
@@ -235,7 +238,7 @@ function AutoClicker() {
             </Grid>
           </Grid>
           <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Button onClick={handleClaim} disabled={!claimable}>Claim $BONK</Button>
+            <Button onClick={handleClaim} disabled={!claimable}>Claim $SOL</Button>
           </Grid> 
           {/* <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "#f7a804", borderRadius: 5, m: 2 }}>
             <Button onClick={handleMultiplier} disabled={count < autoClickerMultiplierCost}>
@@ -299,7 +302,7 @@ function AutoClicker() {
   )
 }
 
-export default function Clicker() {
+export default function SolClicker() {
   return (
     <div>
       <AutoClicker />
