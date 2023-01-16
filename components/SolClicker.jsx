@@ -174,24 +174,24 @@ function AutoClicker() {
                             <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem" } }}>{`$SOL - ${count.toFixed(8)}`}</Typography>
                         </Grid>
                         <Grid item sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
-                            <Button sx={{ m: 1, background: "black", minWidth: "14rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleClaim} disabled={!claimable}>Claim</Button>
+                            <Button sx={{ m: 1, background: "black", minWidth: "20rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleClaim} disabled={!claimable}>Claim</Button>
                         </Grid>
                         <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
-                            <Button sx={{ m: 1, background: "black", minWidth: "14rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleClick} disabled={!clickable}>Click</Button>
+                            <Button sx={{ m: 1, background: "black", minWidth: "20rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleClick} disabled={!clickable}>Click</Button>
                         </Grid>
                         <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
-                            <Button sx={{ m: 1, background: "black", minWidth: "14rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleClickPower} disabled={count < clickPowerCost}>
-                                {`Buy Click Power(${clickPower})`}
+                            <Button sx={{ m: 1, background: "black", minWidth: "20rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleClickPower} disabled={count < clickPowerCost}>
+                                {`Buy Click Power(${clickPower}) ~ ${autoClickerCost.toFixed(4)} $SOL`}
                             </Button>
                         </Grid>
                         <Grid item sx={{ mt: 1, display: 'flex', justifyContent: 'center' }}>
-                            <Button sx={{ m: 1, background: "black", minWidth: "14rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleAutoClicker} disabled={count < autoClickerCost}>
-                                {`Buy Auto Clicker(${autoClicker})`}
+                            <Button sx={{ m: 1, background: "black", minWidth: "20rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleAutoClicker} disabled={count < autoClickerCost}>
+                                {`Buy Auto Clicker(${autoClicker}) ~ ${autoClickerCost.toFixed(4)} $SOL`}
                             </Button>
                         </Grid>
                         <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
-                            <Button sx={{ m: 1, background: "black", minWidth: "14rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleMultiplier} disabled={count < autoClickerMultiplierCost}>
-                                {`Buy Auto Multiplier(${autoClickerMultiplier})`}
+                            <Button sx={{ m: 1, background: "black", minWidth: "20rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleMultiplier} disabled={count < autoClickerMultiplierCost}>
+                                {`Buy Auto Multiplier(${autoClickerMultiplier}) ~ ${autoClickerCost.toFixed(4)} $SOL`}
                             </Button>
                         </Grid>
                     </Grid>
