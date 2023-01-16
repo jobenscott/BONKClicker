@@ -3,7 +3,7 @@ import axios from "axios";
 import CourseCard from "../components/cards/CourseCard";
 import Clicker from "../components/Clicker";
 import { SignMessage } from "@/components/SignMessage";
-import { Container, Grid, styled, Typography, TextField, Button, Box, Tabs, Tab, TabPanel } from "@mui/material";
+import { Container, Grid, styled, Typography, TextField, Button, Box, Tabs, Tab } from "@mui/material";
 import SolClicker from "@/components/SolClicker";
 import TabStuff from "@/components/TabStuff";
 
