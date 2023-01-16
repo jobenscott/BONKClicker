@@ -45,6 +45,8 @@ const TopNav = () => {
       mode="horizontal"
       selectedKeys={[current]}
       className="mb-2"
+      sx={{background: "black"}}
+      style={{background: "black"}}
     >
      
       
@@ -94,9 +96,10 @@ const TopNav = () => {
         key="/"
         onClick={(e) => setCurrent(e.key)}
         // icon={<AppstoreOutlined />}
-        sx={{background: '#f7a804', width: "5rem"}}
+        sx={{background: 'black', width: "5rem"}}
+        style={{background: "black", minWdith: "15rem"}}
       >
-       <WalletMultiButton className="btn btn-ghost mr-4" />
+       <WalletMultiButton sx={{background: "black"}} className="btn btn-ghost mr-4" />
       </Item>
       
        {/* <WalletMultiButton className="btn btn-ghost mr-4" />
@@ -110,7 +113,7 @@ const TopNav = () => {
           <SignMessage />
           </Item>
         :
-      <Item onClick={logout}>Logout</Item>
+      <Item style={{background: "black", minWdith: "15rem"}} onClick={logout}>Logout</Item>
         }
 {/*       
       {user &&
