@@ -154,7 +154,7 @@ function AutoClicker() {
   }
 
   return (
-    <Container sx={{ borderRadius: 2 }}>
+    <Container sx={{ borderRadius: 2, paddingLeft:{sm: "0px", xs: "0px"}, paddingRight:{sm: "0px", xs: "0px"} }}>
       {user &&
       <Grid
       container
@@ -167,7 +167,7 @@ function AutoClicker() {
       }}
   >
       <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "white", borderRadius: 2, flexDirection: "column", maxWidth: {md: "70%", sm: "80%"} }}>
-          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', borderRadius: 2, m: 2 }}>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', borderRadius: 2,  }}>
               <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem" } }}>{`$BONK - ${count.toFixed(8)}`}</Typography>
           </Grid>
           <Grid item sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
@@ -181,7 +181,7 @@ function AutoClicker() {
               {`Buy Click Power(${clickPower}) ~ ${clickPowerCost.toFixed(2)} BONK`}
               </Button>
           </Grid>
-          <Grid item sx={{ mt: 1, display: 'flex', justifyContent: 'center' }}>
+          <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
               <Button sx={{ m: 1, background: "black", minWidth: "20rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleAutoClicker} disabled={count < autoClickerCost}>
                   {`Buy Auto Clicker(${autoClicker}) ~ ${autoClickerCost.toFixed(2)} BONK`}
               </Button>

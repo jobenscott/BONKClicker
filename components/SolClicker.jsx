@@ -157,7 +157,7 @@ function AutoClicker() {
     }
 
     return (
-        <Container sx={{ borderRadius: 2 }}>
+        <Container sx={{ borderRadius: 2, paddingLeft:{sm: "0px", xs: "0px"}, paddingRight:{sm: "0px", xs: "0px"} }}>
             {user &&
                 <Grid
                     container
@@ -184,7 +184,7 @@ function AutoClicker() {
                                 {`Buy Click Power(${clickPower}) ~ ${autoClickerCost.toFixed(4)} $SOL`}
                             </Button>
                         </Grid>
-                        <Grid item sx={{ mt: 1, display: 'flex', justifyContent: 'center' }}>
+                        <Grid item sx={{ display: 'flex', justifyContent: 'center' }}>
                             <Button sx={{ m: 1, background: "black", minWidth: "20rem", color: "white", "&:hover": { background: "#4e3868" }, "&:disabled": { background: "gray" } }} onClick={handleAutoClicker} disabled={count < autoClickerCost}>
                                 {`Buy Auto Clicker(${autoClicker}) ~ ${autoClickerCost.toFixed(4)} $SOL`}
                             </Button>
