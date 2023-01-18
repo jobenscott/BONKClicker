@@ -169,7 +169,8 @@ function AutoClicker() {
                         // width: {md: "97.8%", sm: "92%", xs: "92%"},
                     }}
                 >
-                    <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "white", borderRadius: 2, flexDirection: "column", maxWidth: {md: "70%", sm: "80%"} }}>
+                    <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem" } }}>{"$SOL Clicker is temporarily closed(y'all emptied the account fast!)"}</Typography>
+                    {/* <Grid container item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', background: "white", borderRadius: 2, flexDirection: "column", maxWidth: {md: "70%", sm: "80%"} }}>
                         <Grid item sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', borderRadius: 2 }}>
                             <Typography variant="h4" component="h1" gutterBottom sx={{ textAlign: "center", mt: 3, fontSize: { lg: "2rem", md: "2rem", sm: "1.4rem", xs: "1.2rem" } }}>{`$SOL - ${count.toFixed(8)}`}</Typography>
                         </Grid>
@@ -194,7 +195,7 @@ function AutoClicker() {
                                 {`Buy Auto Multiplier(${autoClickerMultiplier}) ~ ${autoClickerCost.toFixed(4)} $SOL`}
                             </Button>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
 
             }
